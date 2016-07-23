@@ -25,7 +25,7 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class Mysearch extends Fragment {
-    LinearLayout linearLayout;
+    LinearLayout linearLayout; 
     RelativeLayout relativeLayout1,relativeLayout2;
     Button back;
     TextView mysearch,textView7;
