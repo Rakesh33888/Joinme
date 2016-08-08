@@ -43,5 +43,6 @@
         android:layout_height="wrap_content"
         android:background="@drawable/joinbtn"
         android:id="@+id/button4"
-        android:layout_gravity="center_horizontal" />
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center|bottom" />
 </LinearLayout>

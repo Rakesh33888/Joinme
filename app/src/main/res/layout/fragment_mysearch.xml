@@ -5,17 +5,16 @@
     android:background="#dbd7d8"
     tools:context="com.example.bts.joinme.Mysearch">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@drawable/box"
+        android:background="#fff"
         android:orientation="horizontal"
         android:id="@+id/linearlayout">
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="18dp"
-            android:layout_height="22dp"
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/grayback"
             android:layout_marginLeft="15dp"
             android:id="@+id/button7"
@@ -31,30 +30,58 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_width="296dp"
-        android:layout_height="96dp"
+        android:layout_width="287dp"
+        android:layout_height="91dp"
         android:background="@drawable/box"
         android:id="@+id/relativelayout_seek"
         android:layout_marginTop="65dp"
         android:layout_gravity="center_horizontal|top">
 
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="250dp"
+
+        <SeekBar
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/progressBar"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:id="@+id/seekBar"
+            android:background="@null"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress"
+            android:thumbOffset="10dp"
+            android:layout_marginTop="30dp"
+            style="@style/CustomSeekBar"
+            android:layout_gravity="center"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Max Distance"
+            android:textSize="14dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/Maxdistance"
+            android:layout_below="@+id/seekBar"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="21dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:id="@+id/distance"
+            android:layout_alignTop="@+id/Maxdistance"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="27dp" />
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="296dp"
+        android:layout_width="287dp"
         android:layout_height="150dp"
         android:background="@drawable/bigbox"
         android:id="@+id/relativelayout_checkbox"
         android:gravity="center_horizontal|left"
         android:layout_marginTop="160dp"
-        android:layout_marginLeft="33dp"
+        android:layout_marginLeft="38dp"
 
         >
 
@@ -65,6 +92,7 @@
             android:text="Any"
             android:layout_marginLeft="10dp"
             android:id="@+id/checkBox"
+            android:checked="true"
             android:layout_below="@+id/textView7"
             android:layout_alignParentStart="true" />
 

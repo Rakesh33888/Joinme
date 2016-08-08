@@ -1,40 +1,22 @@
 package com.example.bts.joinme;
 
-import android.app.Activity;
 import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Point;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
-import android.support.annotation.RequiresPermission;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class MainActivity extends AppCompatActivity {
-    Button b1, b2, b3,b4,b5;
-    TextView tv1, tv2;
+    Button b1, b2,b4,b5;
+    TextView tv1, tv2, b3;
 
 
 
@@ -47,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
         b2 = (Button) findViewById(R.id.button2);
         tv1 = (TextView) findViewById(R.id.textView);
         tv2 = (TextView) findViewById(R.id.textView2);
-        b3 = (Button) findViewById(R.id.btn3);
+        b3 = (TextView) findViewById(R.id.btn3);
+        b3.setClickable(true);
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,11 +51,15 @@ public class MainActivity extends AppCompatActivity {
                             if (email.getText().toString().trim().length()> 0 && pass.getText().toString().trim().length() > 0){
                                 Intent i = new Intent(getApplicationContext(), Screen16.class);
                                     startActivity(i);
-                                Toast.makeText(getApplicationContext(), "Login Succesfull", Toast.LENGTH_SHORT).show();
+                                Toast toast = Toast.makeText(getApplicationContext(),"Login Succesfull", Toast.LENGTH_SHORT);
+                                toast.setGravity(Gravity.CENTER, 0, 0);
+                                toast.show();
                                 dialog.dismiss();
 
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "Invalid Connection", Toast.LENGTH_SHORT).show();
+                                Toast toast = Toast.makeText(getApplicationContext(),"Invalid connection", Toast.LENGTH_SHORT);
+                                toast.setGravity(Gravity.CENTER, 0, 0);
+                                toast.show();
                                 }
                             }
 
@@ -112,11 +99,15 @@ public class MainActivity extends AppCompatActivity {
                             if (email.getText().toString().trim().length() > 0 && pass.getText().toString().trim().length() > 0) {
                                 Intent i1 = new Intent(getApplicationContext(), Screen3a.class);
                                 startActivity(i1);
-                                Toast.makeText(getApplicationContext(), "Sending Conformation code", Toast.LENGTH_SHORT).show();
+                                Toast toast = Toast.makeText(getApplicationContext(),"Login Succesfull", Toast.LENGTH_SHORT);
+                                toast.setGravity(Gravity.CENTER, 0, 0);
+                                toast.show();
                                 dialog.dismiss();
 
                             } else {
-                                Toast.makeText(getApplicationContext(), "Invalid Connection", Toast.LENGTH_SHORT).show();
+                                Toast toast = Toast.makeText(getApplicationContext(),"Invalid connection", Toast.LENGTH_SHORT);
+                                toast.setGravity(Gravity.CENTER, 0, 0);
+                                toast.show();
                             }
                         }
 

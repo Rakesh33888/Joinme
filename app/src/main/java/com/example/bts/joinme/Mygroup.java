@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -23,12 +25,14 @@ import android.widget.TextView;
  * Use the {@link Mygroup#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Mygroup extends Fragment {
+public class Mygroup extends Fragment{
     LinearLayout linearLayoutgroup;
-    Button  createalbum,back1;
+    Button  createalbum;
     RelativeLayout relativeLayoutgroup;
-    ImageView image;
-    TextView textView8,textView9;
+    ImageView image,imageback1;
+    TextView mygroupactivity,imageinfotxt,timeinfotext;
+    FrameLayout frameLayoutinfo;
+    FragmentManager fragmentManager;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,7 +41,6 @@ public class Mygroup extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private OnFragmentInteractionListener mListener;
 
     public Mygroup() {
@@ -73,32 +76,64 @@ public class Mygroup extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                              Bundle savedInstanceState) {
      View v= inflater.inflate(R.layout.fragment_mygroup, container, false);
         linearLayoutgroup= (LinearLayout) v.findViewById(R.id.linearlayout_group);
         relativeLayoutgroup= (RelativeLayout) v.findViewById(R.id.relativelayout_group);
-        textView8= (TextView) v.findViewById(R.id.textView8);
-        textView9= (TextView) v.findViewById(R.id.textView9);
-        image= (ImageView) v.findViewById(R.id.imageView3);
-        back1= (Button) v.findViewById(R.id.button9);
-        back1.setOnClickListener(new View.OnClickListener() {
+        frameLayoutinfo= (FrameLayout) v.findViewById(R.id.framelayoutinfo);
+        mygroupactivity= (TextView) v.findViewById(R.id.mygroupactivity);
+        imageinfotxt= (TextView) v.findViewById(R.id.imgaeinfotxt);
+        timeinfotext= (TextView) v.findViewById(R.id.timeinotext);
+        image= (ImageView) v.findViewById(R.id.groupinfoscreen);
+        image.setClickable(true);
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                fragmentManager=getFragmentManager();
+//
+//                    Screen17 screen17=new Screen17();
+//                    fragmentManager.beginTransaction()
+//                            .replace(R.id.flContent,screen17)
+//                            .addToBackStack(null)
+//                            .commit();
+
+
+
+            }
+        });
+        imageback1= (ImageView) v.findViewById(R.id.backtogroupsetting);
+        imageback1.setClickable(true);
+        imageback1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(getContext(),Screen16.class);
                 startActivity(i);
             }
         });
-        createalbum= (Button) v.findViewById(R.id.button8);
+        createalbum= (Button) v.findViewById(R.id.createnewactivity);
         createalbum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fragmentManager=getFragmentManager();
 
-            }
+                    Screen19 screen19=new Screen19();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.flContent,screen19)
+                            .addToBackStack(null)
+                            .commit();
+
+
+
+
+                }
         });
         return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+
+
+
+
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);

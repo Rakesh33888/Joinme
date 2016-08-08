@@ -8,11 +8,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 
@@ -24,12 +24,13 @@ import android.widget.TextView;
  * Use the {@link Mysearch#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Mysearch extends Fragment {
-    LinearLayout linearLayout; 
+public class Mysearch extends android.support.v4.app.Fragment {
+    LinearLayout linearLayout;
     RelativeLayout relativeLayout1,relativeLayout2;
-    Button back;
-    TextView mysearch,textView7;
+    ImageView back;
+    TextView mysearch,textView7,Maxdistance,distance;
     CheckBox c1,c2,c3;
+    SeekBar seekBar;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -81,7 +82,7 @@ public class Mysearch extends Fragment {
         relativeLayout2 = (RelativeLayout) v.findViewById(R.id.relativelayout_checkbox);
         textView7 = (TextView) v.findViewById(R.id.textView7);
         mysearch = (TextView) v.findViewById(R.id.textView6);
-        back = (Button) v.findViewById(R.id.button7);
+        back = (ImageView) v.findViewById(R.id.button7);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,6 +122,28 @@ public class Mysearch extends Fragment {
                     c2.setChecked(false);
                     c1.setChecked(false);
                 }
+
+            }
+        });
+        Maxdistance= (TextView) v.findViewById(R.id.Maxdistance);
+        distance= (TextView) v.findViewById(R.id.distance);
+        seekBar= (SeekBar) v.findViewById(R.id.seekBar);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                distance.setText(progress+"km");
+
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
         });

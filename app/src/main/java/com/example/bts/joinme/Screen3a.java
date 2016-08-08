@@ -1,35 +1,21 @@
 package com.example.bts.joinme;
 
 import android.app.ActionBar;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.Layout;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
 
 public class Screen3a extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -41,14 +27,7 @@ public class Screen3a extends AppCompatActivity {
     android.support.v7.app.ActionBar actionBar;
 
      TextView textView5;
-//    DatePickerDialog.OnDateSetListener dd=new DatePickerDialog.OnDateSetListener() {
-//        @Override
-//        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-//
-//            // Toast.makeText(first.this,"Year"+year+"Month"+monthOfYear+"Day"+dayOfMonth,Toast.LENGTH_SHORT).show();
-//            textView5.setText("Day+Month+year");
-//        }
-//    };
+
 
 
     @Override
@@ -62,16 +41,10 @@ public class Screen3a extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.imageView2);
         textView5 = (TextView) findViewById(R.id.editText9);
 
-//        textView5.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Calendar cal=Calendar.getInstance();
-//                new DatePickerDialog(Screen3a.this,dd,cal.get(Calendar.YEAR),cal.get(Calendar.MONTH),cal.get(Calendar.DATE)).show();
-//            }
-//        });
+
 
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
-//
+
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayOptions(actionBar.getDisplayOptions()
@@ -121,6 +94,7 @@ public class Screen3a extends AppCompatActivity {
 
 
                 ImageView imageView = (ImageView) findViewById(R.id.imageView2);
+
                 imageView.setImageBitmap(bitmap);
             } catch (IOException e) {
 

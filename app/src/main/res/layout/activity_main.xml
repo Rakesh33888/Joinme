@@ -38,13 +38,25 @@
         android:id="@+id/frameLayout"
         android:layout_alignParentEnd="true">
 
-        <Button
-            android:layout_width="196dp"
-            android:layout_height="19dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/member"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:text="Already a Member"
+            android:textColor="#f1e4e4e4"
+            android:textSize="17sp"
+            android:gravity="center"
             android:id="@+id/btn3"
             android:layout_gravity="center_horizontal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageViewarrow"
+            android:layout_marginLeft="84dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/arrowright"
+            android:layout_gravity="center" />
 
     </FrameLayout>
 

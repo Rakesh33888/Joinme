@@ -11,18 +11,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Appsetting.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link Appsetting#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class Appsetting extends Fragment implements Fragment11.OnFragmentInteractionListener {
+
+public class Appsetting extends Fragment{
     Button btnbck,btnreport,btndelt;
+    ImageView imageback;
+
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,6 +32,7 @@ public class Appsetting extends Fragment implements Fragment11.OnFragmentInterac
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private FragmentManager supportFragmentManager;
 
     public Appsetting() {
         // Required empty public constructor
@@ -72,7 +71,7 @@ public class Appsetting extends Fragment implements Fragment11.OnFragmentInterac
 
 
         View v=inflater.inflate(R.layout.fragment_appsetting, container, false);
-        btnbck = (Button) v.findViewById(R.id.button10);
+        imageback = (ImageView) v.findViewById(R.id.imageback);
         btnbck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,11 +83,13 @@ public class Appsetting extends Fragment implements Fragment11.OnFragmentInterac
         btnreport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new Fragment11();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.flContent, fragment);
-                fragmentTransaction.addToBackStack(null);
+                Fragment fragment = null;
+                switch (v.getId()) {
+                    case R.id.button11:
+                        fragment = new ReportFragment();
+                        replaceFragment(fragment);
+                        break;
+                }
             }
         });
         btndelt= (Button) v.findViewById(R.id.button12);
@@ -100,6 +101,14 @@ public class Appsetting extends Fragment implements Fragment11.OnFragmentInterac
             }
         });
         return v;
+    }
+
+    private void replaceFragment(Fragment frg) {
+        Fragment reportfragment=new ReportFragment();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.flContent,reportfragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -126,10 +135,14 @@ public class Appsetting extends Fragment implements Fragment11.OnFragmentInterac
         mListener = null;
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
+    public FragmentManager getSupportFragmentManager() {
+        return supportFragmentManager;
     }
+
+//    @Override
+//    public void onFragmentInteraction(Uri uri) {
+//
+//    }
 
 
     /**
